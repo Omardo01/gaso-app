@@ -1,6 +1,9 @@
 import type { Config } from "tailwindcss";
 import { heroui } from "@heroui/react";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const herouiPlugin = heroui as unknown as (opts?: unknown) => any;
+
 const config: Config = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -29,7 +32,7 @@ const config: Config = {
   ],
   darkMode: "class",
   plugins: [
-    heroui({
+    herouiPlugin({
       themes: {
         light: {
           colors: {
