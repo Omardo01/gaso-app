@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --safe-top: env(safe-area-inset-top);
+  --safe-bottom: env(safe-area-inset-bottom);
+  --safe-left: env(safe-area-inset-left);
+  --safe-right: env(safe-area-inset-right);
+}
+
+html,
+body {
+  background-color: #FAFAFB;
+  color: #1A1A2E;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: contain;
+}
+
+body {
+  padding-top: var(--safe-top);
+  padding-bottom: var(--safe-bottom);
+  padding-left: var(--safe-left);
+  padding-right: var(--safe-right);
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+@layer utilities {
+  .tap-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .gradient-hero {
+    background: linear-gradient(135deg, #7C3AED 0%, #A878FF 50%, #BE99FF 100%);
+  }
+}
+
+/* Swipe-to-delete reveal */
+.swipe-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.swipe-content {
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  touch-action: pan-y;
+  will-change: transform;
+}
